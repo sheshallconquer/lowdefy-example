@@ -1,0 +1,94 @@
+id: coding-report
+type: PageHeaderMenu
+properties:
+  title: Report
+layout:
+  contentGutter: 16 # Set a gutter of 16px between all the cards on the page
+# requests:
+#   - id: codingData
+#     type: Request
+#     params:
+# _build.array.map:
+#   on:
+#     _ref: pages/data/codingData.json
+#   callback:
+#     _build.function:
+#       theme:
+#         __build.args: 0.theme
+#       docs:
+#         __build.size:
+#           __build.args: 0.docs
+
+# events:
+#   # A list of actions that gets completed when this page is first loaded.
+#   onInitAsync:
+
+areas:
+  content:
+    blocks:
+      - id: title # Title on page
+        type: Title
+        properties:
+          content: Coding Report
+          level: 2
+
+      - id: pie_chart_card
+        type: Card
+        layout:
+          span: 8
+        properties:
+          title: Coding Decomposition
+        blocks:
+          - id: pie_chart
+            type: EChart
+            properties:
+              height: 400
+              option:
+                series:
+                  - name: counts
+                    type: pie
+                    radius: [30%, 50%] # Make the chart a donut chart
+                    label:
+                      fontSize: 12
+                    dataset:
+                      source:
+                        _log:
+                          _mql.aggregate:
+                            on:
+                              _ref: test_data/get_themes_for_interview_output.json
+                            pipeline:
+                              _var: pipeline
+
+                        # _mql.aggregate:
+                        #   on:
+                        #     _ref: pages/data/codingData.json
+                        # key:  colors.index
+
+                      # _mql.aggregate: # Format data to have fields name and value
+                      #   on:
+                      #     _build.array.map:
+                      #       on:
+                      #         _ref: pages/data/codingData.json
+                      #       callback:
+                      #         _build.function:
+                      #           theme:
+                      #             __build.args: 0.theme
+                      #           count:
+                      #             __build.size:
+                      #               __build.args: 0.docs
+                      #   pipeline:
+                      # - $project:
+                      #     level_1:
+                      #       $slice:
+                      #         - $theme
+                      #         - ' - '
+                      #     value: $count
+                      # - $sort:
+                      #     value: -1
+                    color: # Add custom colors
+                      - '#122C6A'
+                      - '#0044A4'
+                      - '#005BBF'
+                      - '#3874DB'
+                      - '#5A8DF8'
+                      - '#7EABFF'

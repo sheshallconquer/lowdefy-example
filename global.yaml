@@ -1,0 +1,69 @@
+
+- plants - trees
+  -
+
+
+[
+
+  {
+    "theme": "Plants - trees",
+    "docs": [
+      "1234",
+      "2345",
+      "3456",
+      "4567"
+    ]
+  },
+  {
+    "theme": "Plants - flowers",
+    "docs": [
+      "1234",
+      "2345",
+      "3456",
+      "6789"
+    ],
+  },
+  {
+    "theme": "Plants - seeds",
+    "docs": [
+      "6789"
+    ],
+  },
+
+  {
+    "theme": "Seasons - summer",
+    "docs": [
+      "4567",
+      "5678",
+      "6789"
+    ],
+  },
+
+  {
+    "theme": "Seasons - autumn",
+    "docs": [
+      "1234",
+      "2345",
+      "3456",
+      "6789"
+    ],
+  },
+  {
+    "theme": "Seasons - spring",
+    "docs": [
+      "1234",
+      "4567",
+      "5678",
+      "6789"
+    ],
+  },
+
+  {
+    "theme": "Seasons - summer",
+    "docs": [
+      "1234",
+      "2345",
+      "6789"
+    ],
+  },
+]

@@ -1,7 +1,7 @@
-id: edit-brand
+id: edit-customer
 type: PageSiderMenu
 properties:
-  title: Edit Brand
+  title: Edit Customer
 layout:
   contentGutter: 16 # Set a gutter of 16px between all the blocks on the page.
 requests:
@@ -38,17 +38,22 @@ areas:
       - id: title # Create a Title block.
         type: Title
         properties:
-          content: Edit Brand # The title's text.
+          content: Edit Customer # The title's text.
       - id: name # The name text input for the brand. The value of this input is the value of the name field in the page state context.
         type: TextInput
         properties:
           title: Name
-          placeholder: Brand Name
+          placeholder: Customer Name
+      - id: email # The name text input for the brand. The value of this input is the value of the name field in the page state context.
+        type: TextInput
+        properties:
+          title: Email
+          placeholder: Customer Name
       - id: description # The description text area input for the brand. The value of this input is the value of the description field in the page state context.
         type: TextArea
         properties:
           title: Description
-          placeholder: Brand Description
+          placeholder: Customer Description
 
       # Again use the grow (css flex-grow) layout property to lay out the buttons.
       - id: back # Create a back button that will link back to the brands page without making any changes.
@@ -62,11 +67,11 @@ areas:
           block: true # Makes the button fill the maximum defined width instead of only the with of its contents (title and icon).
         events:
           onClick:
-            - id: link_to_brands # When clicked, link back to the brands page.
+            - id: link_to_customers # When clicked, link back to the brands page.
               type: Link
               params:
-                pageId: brands
-      - id: delete_brand # Button for deleting the brand.
+                pageId: customers
+      - id: delete_customer # Button for deleting the brand.
         type: Button
         layout:
           grow: 1 # Because the button has a grow of 1, it will be placed in the same row as the back button, and expand to take up available space.
@@ -82,7 +87,7 @@ areas:
               params:
                 blockId: delete_modal
                 method: open
-      - id: update_brand
+      - id: update_customer
         type: Button
         layout:
           grow: 3 # Because the button has a grow of 3, which is 3 times as large as the
@@ -95,7 +100,7 @@ areas:
           icon: AiOutlineSave
           block: true
         requests:
-          - id: update_brand
+          - id: update_customer
             type: MongoDBUpdateOne # MongoDb updateOne request to update the brand.
             connectionId: brands
             payload:
